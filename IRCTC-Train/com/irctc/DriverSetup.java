@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
 public class DriverSetup {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// WebDriver driver=new EdgeDriver();
 		WebDriver driver=new ChromeDriver();
 		driver.get("https://www.irctc.co.in/nget/train-search");
