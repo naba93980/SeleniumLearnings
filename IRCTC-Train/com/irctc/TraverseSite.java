@@ -14,6 +14,7 @@ public class TraverseSite {
 	public static WebElement destination;
 	public static WebElement dateElement;
 	public static WebElement classElement;
+	public static WebElement disabilityElement;
 
 	public static void source(WebDriver driver) throws InterruptedException {
 		source = driver.findElement(By.cssSelector("input.ng-tns-c57-8"));
@@ -64,5 +65,19 @@ public class TraverseSite {
 		classElement.click();
 		driver.findElement(By.cssSelector("#journeyClass > div > div.ng-trigger.ng-trigger-overlayAnimation.ng-tns-c65-11.ui-dropdown-panel.ui-widget.ui-widget-content.ui-corner-all.ui-shadow.ng-star-inserted > div > ul > p-dropdownitem:nth-child(12) > li")).click();
 		
+	}
+	
+	public static void disabilityConcession(WebDriver driver) throws InterruptedException {
+		
+		driver.findElement(By.cssSelector("#concessionBooking + label")).click();
+		
+		Thread.sleep(2000);
+		
+		driver.findElement(By.cssSelector("button.ui-confirmdialog-acceptbutton")).click();
+	}
+	
+	public static void findTrains(WebDriver driver) {
+		
+		driver.findElement(By.className("train_Search")).click();
 	}
 }
