@@ -1,20 +1,19 @@
 package com.irctc;
 
+import java.util.Scanner;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Main {
 	public static void main(String[] args) throws InterruptedException {
 
-		WebDriver driver = new ChromeDriver();
+		System.out.println("Enter C for Google Chrome");
+		System.out.println("Enter E for Microsoft Edge");
+		Scanner sc = new Scanner(System.in);
+		char browser =  sc.next().charAt(0);
+		sc.close();
 
-//		System.out.println("Enter C for Google Chrome");
-//		System.out.println("Enter E for Microsoft Edge");
-//		char browser=null;
-//		Scanner scanner = new Scanner(System.in);
-//		
-		
-
+		WebDriver driver = DriverSetup.setDriver(browser);
 		driver.get("https://www.irctc.co.in/nget/train-search");
 		driver.manage().window().maximize();
 
