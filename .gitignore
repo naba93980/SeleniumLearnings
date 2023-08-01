@@ -1,2 +1,5 @@
 **.class
 .vscode/
+.project
+.classpath
+bin/
