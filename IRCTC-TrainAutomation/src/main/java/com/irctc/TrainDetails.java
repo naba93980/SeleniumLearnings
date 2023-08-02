@@ -12,21 +12,23 @@ public class TrainDetails {
 
 	public static void trainsAvailablity(WebDriver driver)throws InterruptedException{
 		
-		Thread.sleep(5000);
+		Thread.sleep(TraverseSite.latency);
 		
 		List<WebElement> trains = driver.findElements(By.className("train-heading"));
 		
-		Thread.sleep(3000);
+		Thread.sleep(TraverseSite.latency);
 		
 		trainsAvailable=trains.size();
 		
 		System.out.println("Total trains available: "+trainsAvailable);
 		System.out.println("Name of Trains:");
-//		for (WebElement train : trains) {
-//			System.out.println(train.getText());
-//		}
+		
 		for (int i = 1; i <= trains.size(); i++) {
-			System.out.println(i+". "+trains.get(i-1).getText());
+			
+			WebElement trainElement=trains.get(i-1);
+			Highlight.addHighlight(driver, trainElement);
+			System.out.println(i+". "+trainElement.getText());
+			Highlight.removeHighlight(driver, trainElement);
 		}
 	}
 }

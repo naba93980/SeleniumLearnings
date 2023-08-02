@@ -1,11 +1,11 @@
 package com.irctc;
 
-import java.util.Scanner;
-
 import org.openqa.selenium.WebDriver;
 
+import java.util.Scanner;
+
 public class Main {
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws Exception {
 
 		System.out.println("Enter C for Google Chrome");
 		System.out.println("Enter E for Microsoft Edge");
@@ -16,7 +16,7 @@ public class Main {
 		WebDriver driver = DriverSetup.setDriver(browser);
 		driver.get("https://www.irctc.co.in/nget/train-search");
 		driver.manage().window().maximize();
-
+		
 		CheckWebsite.verifyTitle(driver);
 		TraverseSite.source(driver);
 		TraverseSite.destination(driver);
@@ -25,5 +25,6 @@ public class Main {
 		TraverseSite.disabilityConcession(driver);
 		TraverseSite.findTrains(driver);
 		TrainDetails.trainsAvailablity(driver);
+		ScreenShots.Screenshot(driver);
 	}
 }
