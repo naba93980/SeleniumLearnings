@@ -1,0 +1,39 @@
+Apache POI API library :
+
+    org.apache.poi.ss.usermodel package:
+
+        Workbook interface : Super-interface of all classes that create or maintain Excel workbooks.
+	
+	HSSFWorkbook class : used to read & write Excel files in .xls format
+			     It is compatible with MS-Office versions 97-2003.
+			     HSSFWorkbook(java.io.InputStream s)
+
+	XSSFWorkbook class:  used to read & write Excel files in .xls format
+			     It is compatible with MS-Office 2007 & after.
+			     XSSFWorkbook(java.io.File file), 
+			     XSSFWorkbook(java.io.InputStream is),
+			     XSSFWorkbook(java.io.InputStream is)
+
+			     methods:- 
+			     XSSFSheet createSheet();
+			     XSSFSheet createSheet(java.lang.String sheetname)
+	
+	Sheet interface :    super-interface of all classes that create high or low level spreadsheets with specific names.
+
+	HSSFSheet class:     create excel spreadsheets and it allows to format the sheet style and sheet data.	
+
+	XSSFSheet class:     class which represents high level representation of excel spreadsheet.
+
+
+
+	Row interface: 
+
+	XSSFRow class:	      high-level representation of a row of a spreadsheet.
+
+	Cell interface:
+	
+	XSSFCell class:	      high-level representation of cells in the rows of a spreadsheet.
+
+
+
+https://www.tutorialspoint.com/apache_poi/apache_poi_core_classes.htm#
