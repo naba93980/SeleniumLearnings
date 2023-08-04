@@ -1,4 +1,4 @@
-package com.irctc;
+package com.irctc.utils;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
