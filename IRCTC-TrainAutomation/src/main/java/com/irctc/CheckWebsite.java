@@ -2,9 +2,11 @@ package com.irctc;
 
 import org.openqa.selenium.WebDriver;
 
+import com.irctc.utils.ReadInput;
+
 public class CheckWebsite {
 	public static void verifyTitle(WebDriver driver) {
-		String siteTitle = "IRCTC Next Generation e-Ticketing System";
+		String siteTitle = ReadInput.siteTitleInput();
 		String receivedTitle = driver.getTitle();
 		System.out.println(siteTitle);
 		if(siteTitle.equalsIgnoreCase(receivedTitle))
