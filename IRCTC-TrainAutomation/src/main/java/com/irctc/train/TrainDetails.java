@@ -8,30 +8,33 @@ import org.openqa.selenium.WebElement;
 import com.irctc.utils.ScreenShots;
 import com.irctc.utils.WriteOutput;
 
-
+// class to retrieve train details and output them
 public class TrainDetails {
-	
-	public static int trainsAvailable;
 
-	public static void trainsAvailablity(WebDriver driver)throws InterruptedException, IOException{
-		
+	public static int trainsAvailable;
+	public static WebElement trainElement;
+
+	public static void trainsAvailablity(WebDriver driver) throws InterruptedException, IOException {
+
 		Thread.sleep(10000);
-		
+
+		// Finds all train webelements and puts them in list
 		List<WebElement> trains = driver.findElements(By.className("train-heading"));
-		
+
 		Thread.sleep(TraverseSite.latency);
-		
-		trainsAvailable=trains.size();
-		
-		System.out.println("Total trains available: "+trainsAvailable);
+
+		trainsAvailable = trains.size();
+		System.out.println("Total trains available: " + trainsAvailable);
 		System.out.println("Name of Trains:");
-		
+
+		// prints on console train details
 		for (int i = 1; i <= trains.size(); i++) {
-			WebElement trainElement=trains.get(i-1);
-			System.out.println(i+". "+trainElement.getText());
+			trainElement = trains.get(i - 1);
+			System.out.println(i + ". " + trainElement.getText());
 		}
-		
-		ScreenShots.Screenshot(driver,"result");
+
+		// Takes screenshot of trains available & calls output
+		ScreenShots.Screenshot(driver, "result");
 		WriteOutput.output(trains);
 	}
 }
