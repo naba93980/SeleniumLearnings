@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.irctc.train.TrainDetails;
 import com.irctc.train.TraverseSite;
+import com.irctc.utils.LoadInput;
 import com.irctc.utils.ReadInput;
 import java.util.Scanner;
 
@@ -30,5 +31,8 @@ public class Main {
 		TraverseSite.disabilityConcession(driver);
 		TraverseSite.findTrains(driver);
 		TrainDetails.trainsAvailablity(driver);
+		LoadInput.closeInputWorkbook();
+
+		driver.close();
 	}
 }

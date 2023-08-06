@@ -1,10 +1,5 @@
 package com.irctc.utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
-
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -21,27 +16,15 @@ public class ReadInput {
 	public static String destination;
 	public static String siteTitle;
 	public static String url;
-	public static String inputFile = ReadProperties.getProperties().getProperty("inputFile");
 
-	public static XSSFWorkbook inputWorkBook() {
-		
-		Properties properties = ReadProperties.getProperties();
-		String inputFile = properties.getProperty("inputFile");
-		
-		try {
-			FileInputStream fileInputStream = new FileInputStream(new File(inputFile));
-			inputWorkbook = new XSSFWorkbook(fileInputStream);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return inputWorkbook; 
-	}
-
+	// gets input keys for 'From'' field
 	public static String sourceInput() {
 
-		ReadInput.inputSheet = inputWorkbook.getSheet("TrainList");
-		ReadInput.totalRows = inputSheet.getPhysicalNumberOfRows();
+		inputWorkbook = LoadInput.getInputWorkbook();
+		inputSheet = inputWorkbook.getSheet("TrainList");
+		totalRows = inputSheet.getPhysicalNumberOfRows();
 
+		// checks for Source key in excel file and gets the value
 		for (int i = 0; i < totalRows; i++) {
 			cellValue = inputSheet.getRow(i).getCell(0).getStringCellValue();
 			if (cellValue.equals("Source")) {
@@ -52,17 +35,14 @@ public class ReadInput {
 		return source;
 	}
 
+	// gets input keys for 'To'' field
 	public static String destinationInput() {
 
-		try (FileInputStream fileInputStream = new FileInputStream(new File(inputFile))) {
-			inputWorkbook = new XSSFWorkbook(fileInputStream);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		inputWorkbook = LoadInput.getInputWorkbook();
+		inputSheet = inputWorkbook.getSheet("TrainList");
+		totalRows = inputSheet.getPhysicalNumberOfRows();
 
-		ReadInput.inputSheet = inputWorkbook.getSheet("TrainList");
-		ReadInput.totalRows = inputSheet.getPhysicalNumberOfRows();
-
+		// checks for Destination key in excel file and gets the value
 		for (int i = 0; i < totalRows; i++) {
 			cellValue = inputSheet.getRow(i).getCell(0).getStringCellValue();
 			if (cellValue.equals("Destination")) {
@@ -73,17 +53,14 @@ public class ReadInput {
 		return destination;
 	}
 
+	// gets the url to navigate
 	public static String urlInput() {
 
-		try (FileInputStream fileInputStream = new FileInputStream(new File(inputFile))) {
-			inputWorkbook = new XSSFWorkbook(fileInputStream);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		inputWorkbook = LoadInput.getInputWorkbook();
+		inputSheet = inputWorkbook.getSheet("TrainList");
+		totalRows = inputSheet.getPhysicalNumberOfRows();
 
-		ReadInput.inputSheet = inputWorkbook.getSheet("TrainList");
-		ReadInput.totalRows = inputSheet.getPhysicalNumberOfRows();
-
+		// checks for URL key in excel file and gets the value
 		for (int i = 0; i < totalRows; i++) {
 			cellValue = inputSheet.getRow(i).getCell(0).getStringCellValue();
 			if (cellValue.equals("URL")) {
@@ -94,17 +71,14 @@ public class ReadInput {
 		return url;
 	}
 
+	// checks for SiteTitle key in excel file and gets the value
 	public static String siteTitleInput() {
 
-		try (FileInputStream fileInputStream = new FileInputStream(new File(inputFile))) {
-			inputWorkbook = new XSSFWorkbook(fileInputStream);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		inputWorkbook = LoadInput.getInputWorkbook();
+		inputSheet = inputWorkbook.getSheet("TrainList");
+		totalRows = inputSheet.getPhysicalNumberOfRows();
 
-		ReadInput.inputSheet = inputWorkbook.getSheet("TrainList");
-		ReadInput.totalRows = inputSheet.getPhysicalNumberOfRows();
-
+		// checks for SiteTitle key in excel file and gets the value
 		for (int i = 0; i < totalRows; i++) {
 			cellValue = inputSheet.getRow(i).getCell(0).getStringCellValue();
 			if (cellValue.equals("SiteTitle")) {

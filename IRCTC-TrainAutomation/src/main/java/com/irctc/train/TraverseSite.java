@@ -14,7 +14,7 @@ import org.openqa.selenium.WebElement;
 
 public class TraverseSite {
 
-	public static int latency = 3000;
+	public static int latency = 5000;
 	public static String sourceLocation;
 	public static String destinationLocation;
 	public static WebElement sourceElement;

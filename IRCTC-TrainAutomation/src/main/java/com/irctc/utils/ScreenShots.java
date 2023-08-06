@@ -8,14 +8,23 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.io.FileHandler;
 
+// class to take screenshots
 public class ScreenShots {
-	public static void Screenshot(WebDriver driver, String fileName) throws IOException
-	{
-		TakesScreenshot screenShot = ((TakesScreenshot)driver);
+	public static void Screenshot(WebDriver driver, String fileName) throws IOException {
+
+		// typecasting to ScreenShots interface
+		TakesScreenshot screenShot = ((TakesScreenshot) driver);
+
+		// creates the raw source file
 		File Source = screenShot.getScreenshotAs(OutputType.FILE);
-		String filePath="C:\\Users\\2282212\\OneDrive - Cognizant\\Desktop\\Naba\\InterimIRCTC\\"+fileName+".png";
+
+		// creates output destination file
+		String projectPath = System.getProperty("user.dir");
+		String filePath = projectPath + "\\Resources\\output\\" + fileName + ".png";
 		File Destination = new File(filePath);
-		FileHandler.copy(Source, Destination);	
+
+		// copies file to destination file
+		FileHandler.copy(Source, Destination);
 		System.out.println("Screenshot has been taken!");
 	}
 }

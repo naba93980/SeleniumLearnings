@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.irctc.utils.ReadInput;
 
+// class to verify if the tiltle of the website
 public class CheckWebsite {
 	public static void verifyTitle(WebDriver driver) {
 		String siteTitle = ReadInput.siteTitleInput();
