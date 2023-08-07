@@ -18,7 +18,7 @@ public class TrainDetails {
 
 		Thread.sleep(10000);
 
-		// Finds all train webelements and puts them in list
+		// Finds all train web elements and puts them in list
 		List<WebElement> trains = driver.findElements(By.className("train-heading"));
 
 		Thread.sleep(TraverseSite.latency);
@@ -34,7 +34,7 @@ public class TrainDetails {
 		}
 
 		// Takes screenshot of trains available & calls output
-		ScreenShots.Screenshot(driver, "result");
+		ScreenShots.takeScreenshot(driver, "result");
 		WriteOutput.output(trains);
 	}
 }
