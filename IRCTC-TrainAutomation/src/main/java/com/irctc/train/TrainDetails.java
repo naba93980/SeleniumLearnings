@@ -1,6 +1,5 @@
 package com.irctc.train;
 
-import java.io.IOException;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +13,7 @@ public class TrainDetails {
 	public static int trainsAvailable;
 	public static WebElement trainElement;
 
-	public static void trainsAvailablity(WebDriver driver) throws InterruptedException, IOException {
+	public static void trainsAvailablity(WebDriver driver) throws Exception {
 
 		Thread.sleep(10000);
 

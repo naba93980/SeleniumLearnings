@@ -18,7 +18,7 @@ public class ReadInput {
 	public static String url;
 
 	// gets input keys for 'From'' field
-	public static String sourceInput() {
+	public static String sourceInput() throws Exception {
 
 		inputWorkbook = LoadInput.getInputWorkbook();
 		inputSheet = inputWorkbook.getSheet("TrainList");
@@ -36,7 +36,7 @@ public class ReadInput {
 	}
 
 	// gets input keys for 'To'' field
-	public static String destinationInput() {
+	public static String destinationInput() throws Exception {
 
 		inputWorkbook = LoadInput.getInputWorkbook();
 		inputSheet = inputWorkbook.getSheet("TrainList");
@@ -53,8 +53,8 @@ public class ReadInput {
 		return destination;
 	}
 
-	// gets the url to navigate
-	public static String urlInput() {
+	// gets the URL to navigate
+	public static String urlInput() throws Exception {
 
 		inputWorkbook = LoadInput.getInputWorkbook();
 		inputSheet = inputWorkbook.getSheet("TrainList");
@@ -72,7 +72,7 @@ public class ReadInput {
 	}
 
 	// checks for SiteTitle key in excel file and gets the value
-	public static String siteTitleInput() {
+	public static String siteTitleInput() throws Exception {
 
 		inputWorkbook = LoadInput.getInputWorkbook();
 		inputSheet = inputWorkbook.getSheet("TrainList");

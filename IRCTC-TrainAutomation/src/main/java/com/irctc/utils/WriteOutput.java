@@ -16,7 +16,7 @@ public class WriteOutput {
 	public static XSSFSheet outputSheet;
 	public static XSSFRow outputRow;
 
-	public static void output(List<WebElement> trains) {
+	public static void output(List<WebElement> trains) throws Exception {
 
 		Properties properties = ReadProperties.getProperties();
 		String outputFile = properties.getProperty("outputFile");
@@ -35,13 +35,14 @@ public class WriteOutput {
 			outputRow.createCell(1).setCellValue(trains.get(i - 1).getText());
 		}
 
-		// workbook is written in the output filestream
+		// workbook is written in the output file stream
 		try (FileOutputStream fileOutputStream = new FileOutputStream(
 				new File(outputFile))) {
 			outputWorkbook.write(fileOutputStream);
 			System.out.println("Output saved");
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new Exception("Could not save output");
 		}
 	}
 }

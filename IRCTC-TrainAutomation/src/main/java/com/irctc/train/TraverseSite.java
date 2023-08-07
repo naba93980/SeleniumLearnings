@@ -27,7 +27,7 @@ public class TraverseSite {
 	public static WebElement disabilityElement;
 
 	// method to find the 'From' element and interact with it
-	public static void source(WebDriver driver) throws InterruptedException, IOException {
+	public static void source(WebDriver driver) throws Exception {
 
 		// gets the source input, finds the elements, sends keys
 		sourceLocation = ReadInput.sourceInput();
@@ -45,7 +45,7 @@ public class TraverseSite {
 	}
 
 	// method to find the 'To' element and and interact with it
-	public static void destination(WebDriver driver) throws InterruptedException, IOException {
+	public static void destination(WebDriver driver) throws Exception {
 		
 		// gets the source input, finds the elements, sends keys
 		destinationLocation=ReadInput.destinationInput();

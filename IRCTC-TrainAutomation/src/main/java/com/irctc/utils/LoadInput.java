@@ -14,7 +14,7 @@ public class LoadInput {
     private static XSSFWorkbook workBook;
 
     // method to open and return instance of input workbook
-    public static XSSFWorkbook getInputWorkbook() {
+    public static XSSFWorkbook getInputWorkbook() throws Exception {
 
         if (workBook == null) {
             Properties properties = ReadProperties.getProperties();
@@ -24,6 +24,7 @@ public class LoadInput {
                 LoadInput.workBook = new XSSFWorkbook(fileInputStream);
             } catch (IOException e) {
                 e.printStackTrace();
+                throw new Exception("Workbook cannot be loaded");
             }
             return workBook;
         } else
@@ -31,11 +32,12 @@ public class LoadInput {
     }
 
     // method to close instance of input workbook
-    public static void closeInputWorkbook() {
+    public static void closeInputWorkbook() throws Exception {
         try {
             fileInputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
+            throw new Exception("Could not close workbook");
         }
     }
 }
