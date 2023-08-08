@@ -12,7 +12,7 @@ public class ReadProperties {
 
 		Properties properties = new Properties();
 		String projectPath = System.getProperty("user.dir");
-		try (FileInputStream fis = new FileInputStream(new File(projectPath + "\\Resources\\input\\Configuration.properties"))) {
+		try (FileInputStream fis = new FileInputStream(new File(projectPath + "\\Resources\\Configuration.properties"))) {
 			properties.load(fis);
 		} catch (IOException e) {
 			e.printStackTrace();
