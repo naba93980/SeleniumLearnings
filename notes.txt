@@ -6,3 +6,4 @@ https://www.browserstack.com/guide/selenium-rc-tutorial
 https://www.browserstack.com/guide/difference-between-selenium-standalone-server-and-selenium-server#:~:text=Selenium%20Standalone%20server%20is%20a,in%20parallel%20on%20multiple%20machines.
 https://www.selenium.dev/documentation/webdriver/drivers/remote_webdriver/
 https://toolsqa.com/selenium-webdriver/selenium-grid/
+https://www.guru99.com/creating-keyword-hybrid-frameworks-with-selenium.html

@@ -1,0 +1,32 @@
+public interface WebDriver extends SearchContext
+
+The methods in this interface :-
+
+1. Control of the browser itself
+2. Selection of WebElements
+3. Debugging aids
+
+methods:-
+
+1. void close()
+2. WebElement	findElement(By by)
+3. List<WebElement> ->	findElements(By by)
+4. void get(String url)
+5. String	getCurrentUrl()
+6. String	getPageSource()
+7. String	getTitle()
+8. String	getWindowHandle()
+9. Set<String>	getWindowHandles()
+10.WebDriver.Options	manage()
+11.WebDriver.Navigation	navigate()
+12.void	quit()
+13.WebDriver.TargetLocator	switchTo()
+
+Nested Classes:-
+
+static interface 	WebDriver.ImeHandler  -- An interface for managing input methods.
+static interface 	WebDriver.Navigation 
+static interface 	WebDriver.Options -- An interface for managing stuff you would do in a browser menu
+static interface 	WebDriver.TargetLocator -- Used to locate a given frame or window.
+static interface 	WebDriver.Timeouts -- An interface for managing timeout behavior for WebDriver instances.
+static interface 	WebDriver.Window 
