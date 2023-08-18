@@ -119,7 +119,7 @@ public class Main {
 		}
 		
 		// closes browser
-		driver.close();
+		driver.quit();
 		
 		// creates report file
 		ExtentReport.flushReport();
