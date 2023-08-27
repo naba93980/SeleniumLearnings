@@ -1,0 +1,6 @@
+Page Object Model :
+
+For each webpage in the application, there should be  corresponding page class. 
+This Page class will find the WebElements of that webpage and also contains page methods which perform operations on those WebElements
+
+POM = TEST CASE (script) + PAGE OBJECT(locators)
