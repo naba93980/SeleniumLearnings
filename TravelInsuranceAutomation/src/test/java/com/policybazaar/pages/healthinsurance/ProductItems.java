@@ -9,8 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ProductItems {
 
-	@FindBy(xpath = "//a[text()=\"Health Insurance\" and @class=\"headlink\"]/parent::h3/following-sibling::ul")
-	public List<WebElement> insuranceProductlist;
+	@FindBy(xpath = "//div[@class='ruby-row']/div[3]//span")
+	private List<WebElement> insuranceProductlist;
 	
 	public ProductItems(WebDriver driver) {
 		PageFactory.initElements(driver, this);
