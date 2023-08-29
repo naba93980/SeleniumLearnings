@@ -28,3 +28,6 @@ public class LoginPageFactory {
 		this.loginButton.click();
 	}
 }
+
+
+// https://stackoverflow.com/questions/41911284/pagefactory-class-of-selenium-and-its-working-when-used-with-findby-annotation
