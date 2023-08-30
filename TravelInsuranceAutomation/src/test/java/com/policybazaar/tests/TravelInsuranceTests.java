@@ -1,12 +1,6 @@
 package com.policybazaar.tests;
 
-import java.time.Duration;
-
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.policybazaar.pages.Home;
@@ -16,14 +10,9 @@ import com.policybazaar.pages.travelinsurance.Age;
 import com.policybazaar.pages.travelinsurance.MedicalCondition;
 import com.policybazaar.pages.travelinsurance.MobileNumber;
 import com.policybazaar.pages.travelinsurance.Plans;
-import com.policybazaar.utils.DriverSetup;
-import com.policybazaar.utils.ExtentReport;
-import com.policybazaar.utils.LoadInput;
 
 public class TravelInsuranceTests {
 
-	public WebDriver driver;
-	public XSSFWorkbook inputWorkbook;
 	public Home homePage;
 	public Destination destinationPage;
 	public JourneyDates journeyDatesPage;
@@ -32,32 +21,21 @@ public class TravelInsuranceTests {
 	public MobileNumber mobileNumberPage;
 	public Plans plansPage;
 
-	@BeforeSuite
-	public void setUp() {
-		
-		try {
-			driver = DriverSetup.setDriver();
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-			driver.get("https://www.policybazaar.com/");
-			inputWorkbook = LoadInput.getInputWorkbook();
-			ExtentReport.startReport();
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.exit(1);
-		}
+	@BeforeClass
+	public void navigateToHome() {
+		SuiteSetup.driver.navigate().to("https://www.policybazaar.com/");
 	}
-
-	@BeforeTest
+	
+	@BeforeClass
 	public void initPages() {
 		
-		homePage = new Home(driver);
-		destinationPage = new Destination(driver);
-		journeyDatesPage = new JourneyDates(driver);
-		agePage = new Age(driver);
-		medicalConditionPage = new MedicalCondition(driver);
-		mobileNumberPage = new MobileNumber(driver);
-		plansPage = new Plans(driver);
+		homePage = new Home(SuiteSetup.driver);
+		destinationPage = new Destination(SuiteSetup.driver);
+		journeyDatesPage = new JourneyDates(SuiteSetup.driver);
+		agePage = new Age(SuiteSetup.driver);
+		medicalConditionPage = new MedicalCondition(SuiteSetup.driver);
+		mobileNumberPage = new MobileNumber(SuiteSetup.driver);
+		plansPage = new Plans(SuiteSetup.driver);
 	}
 
 	@Test(priority = 1)
@@ -93,8 +71,4 @@ public class TravelInsuranceTests {
 		plansPage.getInsuranceDetails();
 	}
 	
-	@AfterSuite
-	public void shutdown() {
-		driver.quit();
-	}
 }
