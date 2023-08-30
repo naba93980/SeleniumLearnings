@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Car {
+public class CarDetails {
 
 	@FindBy(xpath = "//[@id=searchInput]//input")
 	private WebElement car;
@@ -16,11 +16,11 @@ public class Car {
 	@FindBy(xpath = "//li[@data-variantid='4944']")
 	private WebElement variantId;
 	
-	public Car(WebDriver driver) {
+	public CarDetails(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void setCarName(String carName) {
+	public void enterCarName(String carName) {
 		this.car.sendKeys(carName);
 		this.carItem.click();
 	}

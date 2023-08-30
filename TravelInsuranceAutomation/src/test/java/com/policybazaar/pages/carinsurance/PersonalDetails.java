@@ -18,20 +18,30 @@ public class PersonalDetails {
 	@FindBy(id = "mobileNo")
 	private WebElement mobileNo;
 	
-	@FindBy(css = ".msg-error.show")
-	private List<WebElement> invalidData;
-	
 	@FindBy(id = "btnLeadDetails")
 	private WebElement viewPlans;
 	
+	@FindBy(css = ".msg-error.show")
+	private List<WebElement> invalidData;
 	
+
 	public PersonalDetails(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void setPersonalDetails(String name, String email, String mobile) {
+	public void enterPersonalDetails(String name, String email, String mobile) {
 		this.fullName.sendKeys(name);
 		this.email.sendKeys(email);
 		this.mobileNo.sendKeys(mobile);
+	}
+	
+	public void getInvalidData() {
+		
+		this.viewPlans.click();
+		System.out.println("Invalid details :");
+		
+		for (WebElement invalidString : invalidData) {
+			System.out.println(invalidString);
+		}
 	}
 }
