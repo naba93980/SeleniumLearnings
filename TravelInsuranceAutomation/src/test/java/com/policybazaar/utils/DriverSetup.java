@@ -24,8 +24,6 @@ public class DriverSetup {
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments(Arrays.asList("--disable-notifications", "--start-maximized"));
-//			String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36";
-//			options.addArguments(String.format("user-agent=%s", userAgent));
 			return new ChromeDriver(options);
 		}
 

@@ -7,10 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Home {
 	
-	@FindBy(xpath = "//section[@class=\"prd-row\"]/div[7]/a")
+	@FindBy(xpath = "//section[@class='prd-row']/div[7]/a")
 	private WebElement travelInsurance;
 	
-	@FindBy(xpath ="//section[@class=\"prd-row\"]/div[4]/a")
+	@FindBy(xpath ="//section[@class='prd-row']/div[4]/a")
 	private WebElement carInsurance;
 	
 	@FindBy(xpath = "//a[normalize-space()='Insurance Products']")

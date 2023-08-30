@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Age {
 	
-	@FindBy(id = "traveller_2")
+	@FindBy(xpath = "//label[@for='traveller_2']")
 	private WebElement countoftraveller;
 	
 	@FindBy(id="0")
@@ -33,12 +33,12 @@ public class Age {
 		this.countoftraveller.click();
 	}
 	
-	public void enterAgeOfTravellerOne() {
+	public void setAgeOfTravellerOne() {
 		this.travellerOne.click();
 		this.ageOne.click();
 	}
 	
-	public void enterAgeOfTravellerTwo() {
+	public void setAgeOfTravellerTwo() {
 		this.travellerTwo.click();
 		this.ageTwo.click();
 	}

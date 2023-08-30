@@ -40,34 +40,83 @@ public class TravelInsuranceTests {
 
 	@Test(priority = 1)
 	public void selectTravelInsurance() {
-		homePage.clickCarInsurance();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		homePage.clickTravelInsurance();
 	}
 	
 	@Test(priority = 2)
 	public void enterDestination() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		destinationPage.enterDestination("Germany");
 		destinationPage.next();
 	}
 	
 	@Test(priority = 3)
 	public void enterJourneyDates() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		journeyDatesPage.enterDates("26 September, 2023", "26 October, 2023");
 		journeyDatesPage.next();
 	}
 	
 	@Test(priority = 4)
-	public void enterMedicalCondition() {
-		medicalConditionPage.enterMedicalCondition();
+	public void selectTravellerDetails() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		agePage.setTravellersCount();
+		agePage.setAgeOfTravellerOne();
+		agePage.setAgeOfTravellerTwo();
 	}
 	
 	@Test(priority = 5)
+	public void enterMedicalCondition() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		medicalConditionPage.enterMedicalCondition();
+	}
+	
+	@Test(priority = 6)
 	public void enterMobileNumber() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		mobileNumberPage.enterMobileNumber("1234567890");
 		mobileNumberPage.viewPlans();
 	}
 	
-	@Test(priority = 6)
+	@Test(priority = 7)
 	public void insuranceDetails() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		plansPage.getInsuranceDetails();
 	}
 	
