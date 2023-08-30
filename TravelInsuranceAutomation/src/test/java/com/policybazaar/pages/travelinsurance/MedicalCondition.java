@@ -13,4 +13,8 @@ public class MedicalCondition {
 	public MedicalCondition(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
+	
+	public void enterMedicalCondition() {
+		this.no.click();
+	}
 }

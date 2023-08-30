@@ -28,4 +28,10 @@ public class PersonalDetails {
 	public PersonalDetails(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
+	
+	public void setPersonalDetails(String name, String email, String mobile) {
+		this.fullName.sendKeys(name);
+		this.email.sendKeys(email);
+		this.mobileNo.sendKeys(mobile);
+	}
 }

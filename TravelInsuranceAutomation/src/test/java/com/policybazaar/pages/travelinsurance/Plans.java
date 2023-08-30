@@ -31,4 +31,18 @@ public class Plans {
 		PageFactory.initElements(driver, this);
 	}
 	
+	public void sortPlansLowToHigh() {
+		this.sortBy.click();
+		this.lowtohigh.click();
+		this.apply.click();
+	}
+	
+	public void getInsuranceDetails() {
+		
+		System.out.println("Details of 3 cheapest insurance plans");
+		
+		for (int i = 1; i <= 3; i++) {
+			System.out.printf("%d. %s offered at %s by company %s", i,this.insuranceName.get(i-1),this.insurancePrice.get(i-1), this.insuranceCompany.get(i-1));
+		}
+	}
 }

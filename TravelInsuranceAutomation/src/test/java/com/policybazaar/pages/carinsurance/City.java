@@ -16,4 +16,9 @@ public class City {
 	public City(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
+	
+	public void city(String cityName) {
+		this.city.sendKeys(cityName);
+		this.cityItem.click();
+	}
 }

@@ -13,4 +13,8 @@ public class CarHome {
 	public CarHome(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
+	
+	public void buyNewCar() {
+		this.buyNewCar.click();
+	}
 }

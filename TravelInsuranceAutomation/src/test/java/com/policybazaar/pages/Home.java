@@ -14,9 +14,21 @@ public class Home {
 	private WebElement carInsurance;
 	
 	@FindBy(xpath = "//a[normalize-space()='Insurance Products']")
-	private WebElement insurancProduct;
+	private WebElement insuranceProduct;
 	
 	public Home(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+	}
+	
+	public void clickTravelInsurance() {
+		this.travelInsurance.click();
+	}
+	
+	public void clickCarInsurance() {
+		this.carInsurance.click();
+	}
+	
+	public void clickInsuranceProduct() {
+		this.insuranceProduct.click();
 	}
 }

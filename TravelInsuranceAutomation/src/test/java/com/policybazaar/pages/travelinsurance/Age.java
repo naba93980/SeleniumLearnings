@@ -22,7 +22,28 @@ public class Age {
 	@FindBy(id="22 years_undefined")
 	private WebElement ageTwo; 
 	
-	Age(WebDriver driver){
+	@FindBy(className = "travel_main_cta")
+	private WebElement nextButton;
+	
+	public Age(WebDriver driver){
 		PageFactory.initElements(driver, this);
+	}
+	
+	public void setTravellersCount() {
+		this.countoftraveller.click();
+	}
+	
+	public void enterAgeOfTravellerOne() {
+		this.travellerOne.click();
+		this.ageOne.click();
+	}
+	
+	public void enterAgeOfTravellerTwo() {
+		this.travellerTwo.click();
+		this.ageTwo.click();
+	}
+	
+	public void next() {
+		this.nextButton.click();;
 	}
 }

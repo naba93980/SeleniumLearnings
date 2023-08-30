@@ -19,4 +19,13 @@ public class Car {
 	public Car(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
+	
+	public void setCarName(String carName) {
+		this.car.sendKeys(carName);
+		this.carItem.click();
+	}
+	
+	public void selectVariant() {
+		this.variantId.click();
+	}
 }

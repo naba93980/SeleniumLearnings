@@ -16,4 +16,12 @@ public class MobileNumber {
 	public MobileNumber(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
+	
+	public void enterMobileNumber(String number) {
+		this.mobileNumber.sendKeys(number);
+	}
+	
+	public void viewPlans() {
+		this.viewPlans.click();;
+	}
 }

@@ -14,10 +14,19 @@ public class Destination {
 	private WebElement location;
 	
 	@FindBy(className = "travel_main_cta")
-	public WebElement nextbutton;
+	private WebElement nextButton;
 	
 	public Destination(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+	}
+	
+	public void enterDestination(String location) {
+		this.destination.sendKeys(location);
+		this.location.click();
+	}
+	
+	public void next() {
+		this.nextButton.click();;
 	}
 	
 }

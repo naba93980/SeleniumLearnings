@@ -15,5 +15,12 @@ public class ProductItems {
 	public ProductItems(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
+	
+	public void listhealthInsuranceProducts() {
+		
+		System.out.println("List of Health Insurance products :");
+		for (int i = 1; i <= this.insuranceProductlist.size(); i++) {
+			System.out.printf("%d. %s", i,this.insuranceProductlist.get(i-1));
+		}
+	}
 }
- 
