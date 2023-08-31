@@ -2,6 +2,7 @@ package com.policybazaar.pages.carinsurance;
 
 import java.util.List;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,15 +34,22 @@ public class PersonalDetails {
 		this.fullName.sendKeys(name);
 		this.email.sendKeys(email);
 		this.mobileNo.sendKeys(mobile);
+		this.mobileNo.sendKeys(Keys.RETURN);
+		this.viewPlans.click();
 	}
 	
 	public void getInvalidData() {
 		
-		this.viewPlans.click();
-		System.out.println("Invalid details :");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Invalid messages :");
 		
 		for (WebElement invalidString : invalidData) {
-			System.out.println(invalidString);
+			System.out.println(invalidString.getText());
 		}
 	}
 }

@@ -42,27 +42,63 @@ public class CarInsuranceTests {
 	
 	@Test(priority = 2)
 	public void buyNewCar() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		carHomePage.buyNewCar();
 	}
 	
 	@Test(priority = 3)
 	public void enterCity() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		cityRTOPage.enterCity("Agartala");
 	}
 	
 	@Test(priority = 4)
 	public void enterCar() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		carDetailsPage.enterCarName("Bolero");
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		carDetailsPage.selectVariant();
 	}
 	
 	@Test(priority = 5)
 	public void enterPersonalDetails() {
-		personalDetailsPage.enterPersonalDetails("Naba", "naba93980", "1234567890");
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		personalDetailsPage.enterPersonalDetails("Naba", "naba93980", "74391");
 	}
 	
 	@Test(priority = 6)
 	public void getInvalidData() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		personalDetailsPage.getInvalidData();
 	}
 }

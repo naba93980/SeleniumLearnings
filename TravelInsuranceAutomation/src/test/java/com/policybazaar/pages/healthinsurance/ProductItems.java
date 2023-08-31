@@ -20,7 +20,7 @@ public class ProductItems {
 		
 		System.out.println("List of Health Insurance products :");
 		for (int i = 1; i <= this.insuranceProductlist.size(); i++) {
-			System.out.printf("%d. %s", i,this.insuranceProductlist.get(i-1));
+			System.out.printf("%d. %s%n", i,this.insuranceProductlist.get(i-1).getText());
 		}
 	}
 }

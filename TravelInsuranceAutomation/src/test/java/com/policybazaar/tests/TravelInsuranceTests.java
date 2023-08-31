@@ -84,6 +84,7 @@ public class TravelInsuranceTests {
 		agePage.setTravellersCount();
 		agePage.setAgeOfTravellerOne();
 		agePage.setAgeOfTravellerTwo();
+		agePage.next();
 	}
 	
 	@Test(priority = 5)
@@ -105,14 +106,22 @@ public class TravelInsuranceTests {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		mobileNumberPage.enterMobileNumber("1234567890");
+		mobileNumberPage.enterMobileNumber("9000123456");
 		mobileNumberPage.viewPlans();
 	}
 	
 	@Test(priority = 7)
 	public void insuranceDetails() {
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		plansPage.sortPlansLowToHigh();
+		try {
+			Thread.sleep(10000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
