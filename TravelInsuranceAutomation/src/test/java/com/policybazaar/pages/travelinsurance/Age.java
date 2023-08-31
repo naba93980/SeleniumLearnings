@@ -13,13 +13,13 @@ public class Age {
 	@FindBy(id="0")
 	private WebElement travellerOne;
 	
-	@FindBy(id="21 years_undefined")
+	@FindBy(xpath = "//label[@for='21 years_undefined']")
 	private WebElement ageOne; 
 	
 	@FindBy(id="1")
 	private WebElement travellerTwo;
 	
-	@FindBy(id="22 years_undefined")
+	@FindBy(xpath = "//label[@for='22 years_undefined']")
 	private WebElement ageTwo; 
 	
 	@FindBy(className = "travel_main_cta")

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CarDetails {
 
-	@FindBy(xpath = "//[@id=searchInput]//input")
+	@FindBy(xpath = "//div[@id='searchInput']//input")
 	private WebElement car;
 	
 	@FindBy(id = "react-autowhatever-1--item-0")
