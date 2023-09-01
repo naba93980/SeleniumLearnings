@@ -42,7 +42,7 @@ public class Plans {
 		System.out.println("Details of 3 cheapest insurance plans");
 		
 		for (int i = 1; i <= 3; i++) {
-			System.out.printf("%d. %s offered at %s by company %s", i,this.insuranceName.get(i-1).getText(),this.insurancePrice.get(i-1).getText(), this.insuranceCompany.get(i-1).getText());
+			System.out.printf("%d. %s offered at %s by company %s%n", i,this.insuranceName.get(i-1).getText(),this.insurancePrice.get(i-1).getText(), this.insuranceCompany.get(i-1).getText());
 		}
 	}
 }

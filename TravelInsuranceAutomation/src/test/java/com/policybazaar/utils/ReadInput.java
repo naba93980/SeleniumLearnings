@@ -1,5 +1,8 @@
 package com.policybazaar.utils;
 
+import java.util.Map;
+import java.util.HashMap;
+
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -16,6 +19,8 @@ public class ReadInput {
 	public static String destination;
 	public static String siteTitle;
 	public static String url;
+	
+	Map<String, String> travelInsuranceData = new HashMap<>();
 
 	// gets input keys for 'From'' field
 	public static String sourceInput() throws Exception {
