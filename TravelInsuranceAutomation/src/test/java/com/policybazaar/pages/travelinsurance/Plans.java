@@ -1,13 +1,18 @@
 package com.policybazaar.pages.travelinsurance;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Plans {
+	
+	private WebDriverWait wait;
 	
 	@FindBy(xpath = "//a[text()='Sort by']")
 	private WebElement sortBy;
@@ -29,15 +34,26 @@ public class Plans {
 
 	public Plans(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 	
 	public void sortPlansLowToHigh() {
+		
+		wait.until(ExpectedConditions.elementToBeClickable(this.sortBy));
 		this.sortBy.click();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(this.lowtohigh));
 		this.lowtohigh.click();
+		
+		wait.until(ExpectedConditions.elementToBeClickable(this.apply));
 		this.apply.click();
 	}
 	
 	public void getInsuranceDetails() {
+		
+		wait.until(ExpectedConditions.visibilityOfAllElements(insuranceName));
+		wait.until(ExpectedConditions.visibilityOfAllElements(insurancePrice));
+		wait.until(ExpectedConditions.visibilityOfAllElements(insuranceCompany));
 		
 		System.out.println("Details of 3 cheapest insurance plans :");
 		
