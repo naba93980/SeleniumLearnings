@@ -2,29 +2,28 @@ package com.policybazaar.tests;
 
 import java.time.Duration;
 
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 import com.policybazaar.utils.DriverSetup;
 import com.policybazaar.utils.ExtentReport;
-import com.policybazaar.utils.LoadInput;
+import com.policybazaar.utils.InputData;
+import com.policybazaar.utils.InputFile;
+
 
 public class SuiteSetup {
 	
 	public static WebDriver driver;
-	public static XSSFWorkbook inputWorkbook;
 	
 	@BeforeSuite
 	public void setUp() {
 		
 		try {
 			driver = DriverSetup.setDriver();
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 			driver.get("https://www.policybazaar.com/");
-//			inputWorkbook = LoadInput.getInputWorkbook();
+			 InputData.inputWorkbook = InputFile.openInputWorkbook();
 			ExtentReport.startReport();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -34,6 +33,12 @@ public class SuiteSetup {
 	
 	@AfterSuite
 	public void shutdown() {
+		
+		try {
+			InputFile.closeInputWorkbook();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		driver.quit();
 	}
 }
