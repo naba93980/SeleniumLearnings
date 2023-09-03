@@ -13,6 +13,8 @@ public class Destination {
 	
 	private WebDriverWait wait;
 	
+	// WebElements on destination page using locators
+	
 	@FindBy(id = "country")
 	private WebElement destination;
 	
@@ -22,12 +24,16 @@ public class Destination {
 	@FindBy(className = "travel_main_cta")
 	private WebElement nextButton;
 	
+	
+	// constructor initializes the elements using PageFactory class
 	public Destination(WebDriver driver) {
 		
 		PageFactory.initElements(driver, this);
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 	
+	
+	// enter destination location
 	public void enterDestination(String location) {
 		
 		wait.until(ExpectedConditions.elementToBeClickable(this.destination));
@@ -37,6 +43,8 @@ public class Destination {
 		this.locationOption.click();
 	}
 	
+	
+	// move to next page
 	public void next() {
 		
 		wait.until(ExpectedConditions.elementToBeClickable(this.nextButton));

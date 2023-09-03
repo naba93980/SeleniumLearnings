@@ -10,6 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebElement;
 
+// class to create and write output data
 public class OutputFile {
 
 	public static XSSFWorkbook outputWorkbook;
@@ -28,14 +29,14 @@ public class OutputFile {
 		public static void output(List<WebElement> insuranceName, List<WebElement> insurancePrice,
 				List<WebElement> insuranceCompany) {
 
-			// creates TrainList sheet in workbook, and a row in sheet
+			// creates Travel sheet in workbook, and a row in sheet
 			XSSFSheet outputSheet = outputWorkbook.createSheet("Travel");
 			outputRow = outputSheet.createRow(0);
 			outputRow.createCell(0).setCellValue("Insurance name");
 			outputRow.createCell(1).setCellValue("Insurance price");
 			outputRow.createCell(2).setCellValue("Insurance company");
 
-			// loops over list, creates row for each train, sets value
+			// loops over list, creates row for each insurance plan, sets value
 			for (int i = 1; i <= insuranceName.size(); i++) {
 				outputRow = outputSheet.createRow(i);
 				outputRow.createCell(0).setCellValue(insuranceName.get(i - 1).getText());
@@ -49,12 +50,12 @@ public class OutputFile {
 
 		public static void output(List<WebElement> invalidData) {
 
-			// creates TrainList sheet in workbook, and a row in sheet
+			// creates Car sheet in workbook
 			XSSFSheet outputSheet = outputWorkbook.createSheet("Car");
 			outputRow = outputSheet.createRow(0);
 			outputRow.createCell(0).setCellValue("Invalid details");
 
-			// loops over list, creates row for each train, sets value
+			// loops over list, creates row for each invalid data, sets value
 			for (int i = 1; i <= invalidData.size(); i++) {
 				outputRow = outputSheet.createRow(i);
 				outputRow.createCell(0).setCellValue(invalidData.get(i - 1).getText());
@@ -66,12 +67,12 @@ public class OutputFile {
 		
 		public static void output(List<WebElement> products) {
 			
-			// creates TrainList sheet in workbook, and a row in sheet
+			// creates Health sheet in workbook
 			XSSFSheet outputSheet = outputWorkbook.createSheet("Health");
 			outputRow = outputSheet.createRow(0);
 			outputRow.createCell(0).setCellValue("Health Products");
 			
-			// loops over list, creates row for each train, sets value
+			// loops over list, creates row for each product, sets value
 			for (int i = 1; i <= products.size(); i++) {
 				outputRow = outputSheet.createRow(i);
 				outputRow.createCell(0).setCellValue(products.get(i - 1).getText());

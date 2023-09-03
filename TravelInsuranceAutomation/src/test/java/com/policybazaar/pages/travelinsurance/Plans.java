@@ -16,6 +16,8 @@ public class Plans {
 	
 	private WebDriverWait wait;
 	
+	// WebElements on plans page using locators
+
 	@FindBy(xpath = "//a[text()='Sort by']")
 	private WebElement sortBy;
 	
@@ -34,11 +36,14 @@ public class Plans {
 	@FindBy(xpath = "//span[@class='premiumPlanPrice']")
 	public List<WebElement> insurancePrice;
 
+	// constructor initializes the elements using PageFactory class
 	public Plans(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 	
+	
+	// sort the plans from low to high
 	public void sortPlansLowToHigh() {
 		
 		wait.until(ExpectedConditions.elementToBeClickable(this.sortBy));
@@ -51,6 +56,8 @@ public class Plans {
 		this.apply.click();
 	}
 	
+	
+	// get details of the available plans
 	public void getInsuranceDetails() {
 		
 		wait.until(ExpectedConditions.visibilityOfAllElements(insuranceName));

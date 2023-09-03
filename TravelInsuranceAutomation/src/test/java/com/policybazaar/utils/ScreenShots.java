@@ -21,6 +21,7 @@ public class ScreenShots {
 		ScreenShots.driver = driver;
 	}
 
+	// gets location to store screenshots
 	public static String getScreenshotLocation() {
 		Properties properties = ReadProperties.getProperties();
 		String screenshotLocation = properties.getProperty("screenshotLocation");

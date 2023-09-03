@@ -8,9 +8,12 @@ import com.policybazaar.utils.InputData;
 
 public class CarData {
 
+	// map to store data related to car insurance
 	public static Map<String, String> carInsuranceData = InputData.getCarInsuranceData();
 	
 
+	// Data provider methods gets data from the map and passes as arguments to test methods 
+	
 	@DataProvider(name = "city")
 	public static Object[][] city() {
 

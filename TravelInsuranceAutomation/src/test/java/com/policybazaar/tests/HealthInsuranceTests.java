@@ -11,15 +11,18 @@ import com.policybazaar.utils.ScreenShots;
 
 public class HealthInsuranceTests {
 
+	// declare all page objects required for the tests
 	private Home homePage;
 	private ProductItems productItemMenu;
 	private ExtentTest test;
 
+	// create extent test for the tests
 	@BeforeClass(groups = {"regression"})
 	public void extentTestSetup() {
 		test = ExtentReportManager.extentReport.createTest("Health Insurance");
 	}
 
+	// navigate to home
 	@BeforeClass(groups = {"regression"})
 	public void navigateToHome() {
 
@@ -33,6 +36,7 @@ public class HealthInsuranceTests {
 		}
 	}
 
+	// initialize all the page objects
 	@BeforeClass(groups = {"regression"})
 	public void initPages() {
 
@@ -40,6 +44,7 @@ public class HealthInsuranceTests {
 		productItemMenu = new ProductItems(SuiteSetup.driver);
 	}
 
+	// tests insurance product drop down menu
 	@Test(priority = 1, groups = {"regression"})
 	public void selectInsuranceProducts() {
 
@@ -52,6 +57,7 @@ public class HealthInsuranceTests {
 		}
 	}
 
+	// get all the health insurance products available
 	@Test(priority = 2, groups = {"regression"})
 	public void getHealthInsuranceProducts() {
 

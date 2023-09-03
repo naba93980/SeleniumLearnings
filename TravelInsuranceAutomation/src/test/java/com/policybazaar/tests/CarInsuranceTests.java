@@ -14,6 +14,7 @@ import com.policybazaar.utils.ScreenShots;
 
 public class CarInsuranceTests {
 
+	// declare all page objects required for the tests
 	private Home homePage;
 	private CarHome carHomePage;
 	private City cityRTOPage;
@@ -21,14 +22,16 @@ public class CarInsuranceTests {
 	private PersonalDetails personalDetailsPage;
 	private ExtentTest test;
 
-	@BeforeClass(groups = {"smoke", "regression"})
+	// create extent test for the tests
+	@BeforeClass(groups = { "smoke", "regression" })
 	public void extentTestSetup() {
 		test = ExtentReportManager.extentReport.createTest("Car Insurance");
 	}
 
-	@BeforeClass(groups = {"smoke", "regression"})
+	// navigate to home
+	@BeforeClass(groups = { "smoke", "regression" })
 	public void navigateToHome() {
-		
+
 		try {
 			SuiteSetup.driver.manage().deleteAllCookies();
 			SuiteSetup.driver.navigate().to("https://www.policybazaar.com/");
@@ -38,8 +41,9 @@ public class CarInsuranceTests {
 			test.fail("Failed to navigate to homepage");
 		}
 	}
-	
-	@BeforeClass(groups = {"smoke", "regression"})
+
+	// initialize all the page objects
+	@BeforeClass(groups = { "smoke", "regression" })
 	public void initPages() {
 
 		homePage = new Home(SuiteSetup.driver);
@@ -49,8 +53,8 @@ public class CarInsuranceTests {
 		personalDetailsPage = new PersonalDetails(SuiteSetup.driver);
 	}
 
-
-	@Test(priority = 1, groups = {"regression", "smoke"})
+	// tests car insurance tab
+	@Test(priority = 1, groups = { "regression", "smoke" })
 	public void selectCarInsurance() {
 
 		try {
@@ -61,7 +65,8 @@ public class CarInsuranceTests {
 		}
 	}
 
-	@Test(priority = 2, groups = {"smoke"})
+	// tests buy new car option
+	@Test(priority = 2, groups = { "smoke" })
 	public void buyNewCar() {
 
 		try {
@@ -72,7 +77,8 @@ public class CarInsuranceTests {
 		}
 	}
 
-	@Test(priority = 3, groups = {"smoke"}, dataProvider = "city", dataProviderClass = com.policybazaar.tests.data.CarData.class)
+	// tests city input
+	@Test(priority = 3, groups = {"smoke" }, dataProvider = "city", dataProviderClass = com.policybazaar.tests.data.CarData.class)
 	public void enterCity(String city) {
 
 		try {
@@ -84,7 +90,8 @@ public class CarInsuranceTests {
 		}
 	}
 
-	@Test(priority = 4, groups = {"smoke"}, dataProvider = "car", dataProviderClass = com.policybazaar.tests.data.CarData.class)
+	// tests car details inputs
+	@Test(priority = 4, groups = {"smoke" }, dataProvider = "car", dataProviderClass = com.policybazaar.tests.data.CarData.class)
 	public void enterCar(String car) {
 
 		try {
@@ -97,9 +104,10 @@ public class CarInsuranceTests {
 		}
 	}
 
-	@Test(priority = 5, groups = {"smoke"}, dataProvider = "personalDetails", dataProviderClass = com.policybazaar.tests.data.CarData.class)
+	// tests personal details input
+	@Test(priority = 5, groups = {"smoke" }, dataProvider = "personalDetails", dataProviderClass = com.policybazaar.tests.data.CarData.class)
 	public void enterPersonalDetails(String name, String email, String mobile) {
-		
+
 		try {
 			personalDetailsPage.enterPersonalDetails(name, email, mobile);
 			test.pass("Personal details entered");
@@ -109,9 +117,10 @@ public class CarInsuranceTests {
 		}
 	}
 
-	@Test(priority = 6, groups = {"smoke"})
+	// gets all the invalid details entered
+	@Test(priority = 6, groups = { "smoke" })
 	public void getInvalidData() {
-		
+
 		try {
 			personalDetailsPage.getInvalidData();
 			test.pass("Fetched invalid details");

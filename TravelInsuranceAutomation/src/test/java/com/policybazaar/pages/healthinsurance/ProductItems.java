@@ -15,15 +15,21 @@ import com.policybazaar.utils.OutputFile;
 public class ProductItems {
 	
 	private WebDriverWait wait;
+	
+	// WebElements on product items page using locators
 
 	@FindBy(xpath = "//div[@class='ruby-row']/div[3]//span")
 	private List<WebElement> insuranceProductlist;
 	
+	
+	// constructor initializes the elements using PageFactory class
 	public ProductItems(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 	
+	
+	// get all the health insurance products
 	public void listhealthInsuranceProducts() {
 		
 		wait.until(ExpectedConditions.visibilityOfAllElements(this.insuranceProductlist));

@@ -9,6 +9,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+// class to get input data
 public class InputData {
 
 	public  static XSSFWorkbook inputWorkbook;
@@ -16,6 +17,7 @@ public class InputData {
 	private static XSSFCell inputCell;
 	private static int totalRows;
 
+	// loads travel insurance data from excel file and puts in map
 	public static Map<String, String> getTravelInsuranceData() {
 
 		Map<String, String> travelInsuranceData = new HashMap<>();
@@ -39,6 +41,7 @@ public class InputData {
 		return travelInsuranceData;
 	}
 
+	// loads car insurance data from excel file and puts in map
 	public static Map<String, String> getCarInsuranceData() {
 
 		Map<String, String> carInsuranceData = new HashMap<>();

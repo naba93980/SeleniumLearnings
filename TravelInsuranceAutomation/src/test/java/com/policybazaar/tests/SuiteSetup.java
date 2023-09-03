@@ -18,6 +18,7 @@ public class SuiteSetup {
 	
 	public static WebDriver driver;
 	
+	// tasks to do before running test suite
 	@BeforeSuite(groups = {"smoke", "regression"})
 	public void setUp() {
 		
@@ -35,6 +36,7 @@ public class SuiteSetup {
 		}
 	}
 	
+	// tasks to do after running test suite
 	@AfterSuite(groups = {"smoke", "regression"})
 	public void shutdown() {
 		

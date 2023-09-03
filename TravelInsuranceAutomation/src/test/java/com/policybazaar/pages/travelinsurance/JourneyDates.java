@@ -13,6 +13,8 @@ public class JourneyDates {
 	
 	private WebDriverWait wait;
 	
+	// WebElements on dates page using locators
+
 	@FindBy(xpath = "//label[text()='Start date']/following-sibling::div/input")
 	private WebElement startdate;
 
@@ -22,11 +24,15 @@ public class JourneyDates {
 	@FindBy(className = "travel_main_cta")
 	private WebElement nextButton;
 	
+	
+	// constructor initializes the elements using PageFactory class
 	public JourneyDates(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 	
+	
+	// enter journey dates
 	public void enterDates(String startDate, String endDate) {
 		
 		wait.until(ExpectedConditions.elementToBeClickable(this.startdate));
@@ -36,6 +42,8 @@ public class JourneyDates {
 		this.enddate.sendKeys(endDate);
 	}
 	
+	
+	// move to next page
 	public void next() {
 		
 		wait.until(ExpectedConditions.elementToBeClickable(this.nextButton));

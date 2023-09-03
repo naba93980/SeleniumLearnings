@@ -16,6 +16,7 @@ import com.policybazaar.utils.ScreenShots;
 
 public class TravelInsuranceTests {
 
+	// declare all page objects required for the tests
 	private Home homePage;
 	private Destination destinationPage;
 	private JourneyDates journeyDatesPage;
@@ -25,11 +26,13 @@ public class TravelInsuranceTests {
 	private Plans plansPage;
 	private ExtentTest test;
 
+	// create extent test for the tests
 	@BeforeClass(groups = {"smoke", "regression"})
 	public void extentTestSetup() {
 		test = ExtentReportManager.extentReport.createTest("Travel Insurance");
 	}
 	
+	// navigate to home
 	@BeforeClass(groups = {"smoke", "regression"})
 	public void navigateToHome() {
 		
@@ -43,6 +46,7 @@ public class TravelInsuranceTests {
 		}
 	}
 
+	// initialize all the page objects
 	@BeforeClass(groups = {"smoke", "regression"})
 	public void initPages() {
 
@@ -56,6 +60,7 @@ public class TravelInsuranceTests {
 	}
 
 
+	// tests travel insurance tab
 	@Test(priority = 1, groups = {"regression", "smoke"})
 	public void selectTravelInsurance() {
 
@@ -67,6 +72,7 @@ public class TravelInsuranceTests {
 		}
 	}
 
+	// tests destination tab
 	@Test(priority = 2, groups = {"smoke"}, dataProvider = "destination", dataProviderClass = com.policybazaar.tests.data.TravelData.class)
 	public void enterDestination(String destination) {
 
@@ -80,6 +86,7 @@ public class TravelInsuranceTests {
 		}
 	}
 
+	// tests start and end date inputs
 	@Test(priority = 3, groups = {"smoke"}, dataProvider = "journeyDates", dataProviderClass = com.policybazaar.tests.data.TravelData.class)
 	public void enterJourneyDates(String startDate, String endDate) {
 
@@ -93,6 +100,7 @@ public class TravelInsuranceTests {
 		}
 	}
 
+	// tests age of travellers options
 	@Test(priority = 4, groups = {"smoke"})
 	public void selectTravellerDetails() {
 
@@ -108,6 +116,7 @@ public class TravelInsuranceTests {
 		}
 	}
 
+	// tests medical condition options
 	@Test(priority = 5, groups = {"smoke"})
 	public void enterMedicalCondition() {
 
@@ -120,6 +129,7 @@ public class TravelInsuranceTests {
 		}
 	}
 
+	// tests mobile number input
 	@Test(priority = 6, groups = {"smoke"}, dataProvider = "phone", dataProviderClass = com.policybazaar.tests.data.TravelData.class)
 	public void enterMobileNumber(String phoneNo) {
 
@@ -133,6 +143,7 @@ public class TravelInsuranceTests {
 		}
 	}
 
+	// sorts the plan low to high and gets the details
 	@Test(priority = 7, groups = {"smoke"})
 	public void insuranceDetails() {
 

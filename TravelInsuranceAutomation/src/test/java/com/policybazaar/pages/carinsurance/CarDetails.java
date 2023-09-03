@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CarDetails {
 	
 	private WebDriverWait wait;
+	
+	// WebElements on car detail page using locators 
 
 	@FindBy(xpath = "//input[@placeholder='Search car brand']")
 	private WebElement car;
@@ -22,11 +24,14 @@ public class CarDetails {
 	@FindBy(xpath = "//li[@data-variantid='4944']")
 	private WebElement variantId;
 	
+	
+	// constructor initializes the elements using PageFactory class
 	public CarDetails(WebDriver driver) {	
 		PageFactory.initElements(driver, this);
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 	
+	// enter name of car
 	public void enterCarName(String carName) {
 		
 		wait.until(ExpectedConditions.elementToBeClickable(this.car));
@@ -37,6 +42,7 @@ public class CarDetails {
 		this.carItem.click();
 	}
 	
+	// select variant of car
 	public void selectVariant() {
 		
 		wait.until(ExpectedConditions.elementToBeClickable(this.variantId));

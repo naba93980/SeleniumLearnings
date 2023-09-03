@@ -17,6 +17,8 @@ public class PersonalDetails {
 	
 	private WebDriverWait wait;
 	
+	// WebElements on personal details page using locators
+	
 	@FindBy(id = "name")
 	private WebElement fullName;
 
@@ -33,11 +35,14 @@ public class PersonalDetails {
 	private List<WebElement> invalidData;
 	
 
+	// constructor initializes the elements using PageFactory class
 	public PersonalDetails(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 	
+	
+	// enter personal details
 	public void enterPersonalDetails(String name, String emailId, String mobile) {
 		
 		wait.until(ExpectedConditions.elementToBeClickable(this.fullName));
@@ -54,6 +59,7 @@ public class PersonalDetails {
 		this.viewPlans.click();
 	}
 	
+	// get all the invalid data entered
 	public void getInvalidData() {
 		
 		wait.until(ExpectedConditions.visibilityOfAllElements(this.invalidData));
