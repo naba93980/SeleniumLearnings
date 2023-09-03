@@ -3,6 +3,7 @@ package com.policybazaar.tests;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.policybazaar.pages.Home;
 import com.policybazaar.pages.travelinsurance.Destination;
 import com.policybazaar.pages.travelinsurance.JourneyDates;
@@ -10,25 +11,41 @@ import com.policybazaar.pages.travelinsurance.Age;
 import com.policybazaar.pages.travelinsurance.MedicalCondition;
 import com.policybazaar.pages.travelinsurance.MobileNumber;
 import com.policybazaar.pages.travelinsurance.Plans;
+import com.policybazaar.utils.ExtentReportManager;
+import com.policybazaar.utils.ScreenShots;
 
 public class TravelInsuranceTests {
 
-	public Home homePage;
-	public Destination destinationPage;
-	public JourneyDates journeyDatesPage;
-	public Age agePage;
-	public MedicalCondition medicalConditionPage;
-	public MobileNumber mobileNumberPage;
-	public Plans plansPage;
+	private Home homePage;
+	private Destination destinationPage;
+	private JourneyDates journeyDatesPage;
+	private Age agePage;
+	private MedicalCondition medicalConditionPage;
+	private MobileNumber mobileNumberPage;
+	private Plans plansPage;
+	private ExtentTest test;
 
-	@BeforeClass
-	public void navigateToHome() {
-		SuiteSetup.driver.navigate().to("https://www.policybazaar.com/");
+	@BeforeClass(groups = {"smoke", "regression"})
+	public void extentTestSetup() {
+		test = ExtentReportManager.extentReport.createTest("Travel Insurance");
 	}
 	
-	@BeforeClass
-	public void initPages() {
+	@BeforeClass(groups = {"smoke", "regression"})
+	public void navigateToHome() {
 		
+		try {
+			SuiteSetup.driver.manage().deleteAllCookies();
+			SuiteSetup.driver.navigate().to("https://www.policybazaar.com/");
+			test.pass("Navigated to homepage");
+			ScreenShots.takeScreenshot("Homepage", test);
+		} catch (Exception e) {
+			test.fail("Failed to navigate to homepage");
+		}
+	}
+
+	@BeforeClass(groups = {"smoke", "regression"})
+	public void initPages() {
+
 		homePage = new Home(SuiteSetup.driver);
 		destinationPage = new Destination(SuiteSetup.driver);
 		journeyDatesPage = new JourneyDates(SuiteSetup.driver);
@@ -38,52 +55,94 @@ public class TravelInsuranceTests {
 		plansPage = new Plans(SuiteSetup.driver);
 	}
 
-	@Test(priority = 1)
+
+	@Test(priority = 1, groups = {"regression", "smoke"})
 	public void selectTravelInsurance() {
-		homePage.clickTravelInsurance();
+
+		try {
+			homePage.clickTravelInsurance();
+			test.pass("Navigated to Travel Insurance");
+		} catch (Exception e) {
+			test.fail("Could not navigate to Travel Insurance");
+		}
 	}
-	
-	
-	@Test(priority = 2, dataProvider = "destination", dataProviderClass = com.policybazaar.tests.data.TravelData.class )
+
+	@Test(priority = 2, groups = {"smoke"}, dataProvider = "destination", dataProviderClass = com.policybazaar.tests.data.TravelData.class)
 	public void enterDestination(String destination) {
-		destinationPage.enterDestination(destination);
-		destinationPage.next();
+
+		try {
+			destinationPage.enterDestination(destination);
+			ScreenShots.takeScreenshot("Destination", test);
+			destinationPage.next();
+			test.pass("Destination entered");
+		} catch (Exception e) {
+			test.fail("Could not enter destination");
+		}
 	}
-	
-	
-	@Test(priority = 3, dataProvider = "journeyDates", dataProviderClass = com.policybazaar.tests.data.TravelData.class)
+
+	@Test(priority = 3, groups = {"smoke"}, dataProvider = "journeyDates", dataProviderClass = com.policybazaar.tests.data.TravelData.class)
 	public void enterJourneyDates(String startDate, String endDate) {
-		journeyDatesPage.enterDates(startDate, endDate);
-		journeyDatesPage.next();
+
+		try {
+			journeyDatesPage.enterDates(startDate, endDate);
+			ScreenShots.takeScreenshot("Journey_dates", test);
+			journeyDatesPage.next();
+			test.pass("Journey dates entered");
+		} catch (Exception e) {
+			test.fail("Could not enter journey dates");
+		}
 	}
-	
-	
-	@Test(priority = 4)
+
+	@Test(priority = 4, groups = {"smoke"})
 	public void selectTravellerDetails() {
-		agePage.setTravellersCount();
-		agePage.setAgeOfTravellerOne();
-		agePage.setAgeOfTravellerTwo();
-		agePage.next();
+
+		try {
+			agePage.setTravellersCount();
+			agePage.setAgeOfTravellerOne();
+			agePage.setAgeOfTravellerTwo();
+			ScreenShots.takeScreenshot("Traveller_details", test);
+			agePage.next();
+			test.pass("Traveller details selected");
+		} catch (Exception e) {
+			test.fail("Could not select traveller details");
+		}
 	}
-	
-	
-	@Test(priority = 5)
+
+	@Test(priority = 5, groups = {"smoke"})
 	public void enterMedicalCondition() {
-		medicalConditionPage.enterMedicalCondition();
+
+		try {
+			medicalConditionPage.enterMedicalCondition();
+			ScreenShots.takeScreenshot("Medical_condition", test);
+			test.pass("Medical condition selected");
+		} catch (Exception e) {
+			test.fail("Could not select medical condition");
+		}
 	}
-	
-	
-	@Test(priority = 6)
+
+	@Test(priority = 6, groups = {"smoke"})
 	public void enterMobileNumber() {
-		mobileNumberPage.enterMobileNumber("9000123456");
-		mobileNumberPage.viewPlans();
+
+		try {
+			mobileNumberPage.enterMobileNumber("9000123456");
+			ScreenShots.takeScreenshot("Mobile_Number", test);
+			mobileNumberPage.viewPlans();
+			test.pass("Mobile number entered");
+		} catch (Exception e) {
+			test.fail("Could not enter mobile number");
+		}
 	}
-	
-	
-	@Test(priority = 7)
+
+	@Test(priority = 7, groups = {"smoke"})
 	public void insuranceDetails() {
-		plansPage.sortPlansLowToHigh();
-		plansPage.getInsuranceDetails();
+
+		try {
+			plansPage.sortPlansLowToHigh();
+			ScreenShots.takeScreenshot("Insurance_plans", test);
+			plansPage.getInsuranceDetails();
+			test.pass("Fetched details of travel insurance plans");
+		} catch (Exception e) {
+			test.fail("Could not fetch details of travel insurance plans");
+		}
 	}
-	
 }
