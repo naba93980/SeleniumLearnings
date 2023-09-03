@@ -10,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.policybazaar.utils.OutputFile;
+
 public class ProductItems {
 	
 	private WebDriverWait wait;
@@ -27,8 +29,11 @@ public class ProductItems {
 		wait.until(ExpectedConditions.visibilityOfAllElements(this.insuranceProductlist));
 		
 		System.out.println("List of Health Insurance products :");
+		
 		for (int i = 1; i <= this.insuranceProductlist.size(); i++) {
 			System.out.printf("%d. %s%n", i,this.insuranceProductlist.get(i-1).getText());
 		}
+		
+		OutputFile.InsuranceProducts.output(insuranceProductlist);
 	}
 }

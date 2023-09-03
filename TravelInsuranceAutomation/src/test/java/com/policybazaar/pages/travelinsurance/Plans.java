@@ -10,6 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.policybazaar.utils.OutputFile;
+
 public class Plans {
 	
 	private WebDriverWait wait;
@@ -60,5 +62,7 @@ public class Plans {
 		for (int i = 1; i <= 3; i++) {
 			System.out.printf("%d. %s offered at %s by company %s%n", i,this.insuranceName.get(i-1).getText(),this.insurancePrice.get(i-1).getText(), this.insuranceCompany.get(i-1).getText());
 		}
+		
+		OutputFile.TravelInsurance.output(insuranceName, insurancePrice, insuranceCompany);
 	}
 }

@@ -11,6 +11,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.policybazaar.utils.OutputFile;
+
 public class PersonalDetails {
 	
 	private WebDriverWait wait;
@@ -60,5 +62,7 @@ public class PersonalDetails {
 		for (WebElement invalidString : invalidData) {
 			System.out.println(invalidString.getText());
 		}
+		
+		OutputFile.CarInsurance.output(invalidData);
 	}
 }
