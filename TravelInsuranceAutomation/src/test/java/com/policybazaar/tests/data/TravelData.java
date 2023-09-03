@@ -31,7 +31,7 @@ public class TravelData {
 	@DataProvider(name = "phone")
 	public static Object[][] phone() {
 		
-		String phone = travelInsuranceData.get("Phone");
-		return new Object[][] { { phone }, };
+		String phoneNo = travelInsuranceData.get("Phone");
+		return new Object[][] { { phoneNo }, };
 	}
 }

@@ -120,11 +120,11 @@ public class TravelInsuranceTests {
 		}
 	}
 
-	@Test(priority = 6, groups = {"smoke"})
-	public void enterMobileNumber() {
+	@Test(priority = 6, groups = {"smoke"}, dataProvider = "phone", dataProviderClass = com.policybazaar.tests.data.TravelData.class)
+	public void enterMobileNumber(String phoneNo) {
 
 		try {
-			mobileNumberPage.enterMobileNumber("9000123456");
+			mobileNumberPage.enterMobileNumber(phoneNo);
 			ScreenShots.takeScreenshot("Mobile_Number", test);
 			mobileNumberPage.viewPlans();
 			test.pass("Mobile number entered");
